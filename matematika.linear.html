@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Lineární rovnice a soustavy – tréninkový test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.2em;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 1.5em;
+            color: #555;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .question {
+            border-left: 4px solid #e0e0e0;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            background: #fafafa;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .question.correct {
+            border-color: #4caf50;
+            background: #f0fff0;
+        }
+
+        .question.incorrect {
+            border-color: #f44336;
+            background: #fff0f0;
+        }
+
+        .q-header {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .q-text {
+            margin-bottom: 8px;
+        }
+
+        .inputs-row {
+            margin-bottom: 6px;
+        }
+
+        label {
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        input[type="text"] {
+            padding: 4px 6px;
+            font-size: 15px;
+            width: 80px;
+        }
+
+        .buttons {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #checkTest {
+            background: #1976d2;
+            color: white;
+        }
+
+        #resetTest {
+            background: #e0e0e0;
+        }
+
+        #result {
+            margin-top: 16px;
+            font-weight: 600;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            label {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                max-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Lineární rovnice a jejich soustavy</h1>
+    <p class="intro">Vyřeš následujících 8 úloh. Odpovědi zadávej jako čísla (můžeš použít "," nebo ".").</p>
+
+    <div class="card" id="test">
+
+        <!-- 1: jednoduchá lineární rovnice -->
+        <div class="question" data-question="1">
+            <div class="q-header">1. Lineární rovnice</div>
+            <div class="q-text">
+                Řeš rovnici: <strong>3x − 5 = 10</strong>.
+            </div>
+            <div class="inputs-row">
+                <label for="q1x">x =</label>
+                <input type="text" id="q1x" class="answer" data-correct="5">
+            </div>
+        </div>
+
+        <!-- 2: lineární rovnice s závorkami -->
+        <div class="question" data-question="2">
+            <div class="q-header">2. Lineární rovnice se závorkami</div>
+            <div class="q-text">
+                Řeš rovnici: <strong>4(x − 2) = 2x + 8</strong>.
+            </div>
+            <div class="inputs-row">
+                <label for="q2x">x =</label>
+                <input type="text" id="q2x" class="answer" data-correct="8">
+            </div>
+        </div>
+
+        <!-- 3: lineární rovnice se zlomkem -->
+        <div class="question" data-question="3">
+            <div class="q-header">3. Lineární rovnice se zlomkem</div>
+            <div class="q-text">
+                Řeš rovnici: <strong>(2x + 3) / 5 = 3</strong>.
+            </div>
+            <div class="inputs-row">
+                <label for="q3x">x =</label>
+                <input type="text" id="q3x" class="answer" data-correct="6">
+            </div>
+        </div>
+
+        <!-- 4: soustava (sčítací/dosazovací) -->
+        <div class="question" data-question="4">
+            <div class="q-header">4. Soustava dvou lineárních rovnic</div>
+            <div class="q-text">
+                Řeš soustavu rovnic (např. sčítací nebo dosazovací metodou):<br>
+                <strong>
+                    x + y = 7<br>
+                    x − y = 3
+                </strong>
+            </div>
+            <div class="inputs-row">
+                <label for="q4x">x =</label>
+                <input type="text" id="q4x" class="answer" data-correct="5">
+            </div>
+            <div class="inputs-row">
+                <label for="q4y">y =</label>
+                <input type="text" id="q4y" class="answer" data-correct="2">
+            </div>
+        </div>
+
+        <!-- 5: soustava – jiná čísla -->
+        <div class="question" data-question="5">
+            <div class="q-header">5. Soustava dvou lineárních rovnic</div>
+            <div class="q-text">
+                Řeš soustavu rovnic:<br>
+                <strong>
+                    2x − y = 1<br>
+                    x + 2y = 8
+                </strong>
+            </div>
+            <div class="inputs-row">
+                <label for="q5x">x =</label>
+                <input type="text" id="q5x" class="answer" data-correct="2">
+            </div>
+            <div class="inputs-row">
+                <label for="q5y">y =</label>
+                <input type="text" id="q5y" class="answer" data-correct="3">
+            </div>
+            <div class="hint">Poznámka: Grafické řešení by odpovídalo průsečíku dvou přímek v souřadnicích (x, y).</div>
+        </div>
+
+        <!-- 6: textová úloha -> soustava -->
+        <div class="question" data-question="6">
+            <div class="q-header">6. Textová úloha – součet a rozdíl čísel</div>
+            <div class="q-text">
+                Součet dvou čísel je 17 a jejich rozdíl je 3. Urči obě čísla.<br>
+                (Sestav soustavu rovnic, například: <em>a + b = 17, a − b = 3</em>.)
+            </div>
+            <div class="inputs-row">
+                <label for="q6a">Větší číslo =</label>
+                <input type="text" id="q6a" class="answer" data-correct="10">
+            </div>
+            <div class="inputs-row">
+                <label for="q6b">Menší číslo =</label>
+                <input type="text" id="q6b" class="answer" data-correct="7">
+            </div>
+        </div>
+
+        <!-- 7: textová úloha – lístky do kina -->
+        <div class="question" data-question="7">
+            <div class="q-header">7. Textová úloha – lístky do kina</div>
+            <div class="q-text">
+                V kině prodali celkem 120 lístků. Dětský lístek stojí 10&nbsp;Kč, dospělý lístek 15&nbsp;Kč.
+                Celkem vybrali 1560&nbsp;Kč. Kolik prodali dětských a kolik dospělých lístků?<br>
+                (Např. soustava: <em>d + o = 120</em> a <em>10d + 15o = 1560</em>, kde d – dětské, o – dospělé.)
+            </div>
+            <div class="inputs-row">
+                <label for="q7d">Dětské lístky =</label>
+                <input type="text" id="q7d" class="answer" data-correct="84">
+            </div>
+            <div class="inputs-row">
+                <label for="q7o">Dospělé lístky =</label>
+                <input type="text" id="q7o" class="answer" data-correct="36">
+            </div>
+        </div>
+
+        <!-- 8: textová úloha – cena sešitu a tužky -->
+        <div class="question" data-question="8">
+            <div class="q-header">8. Textová úloha – cena sešitu a tužky</div>
+            <div class="q-text">
+                Za tři sešity a dvě tužky zaplatili 74&nbsp;Kč. Jeden sešit stojí o 8&nbsp;Kč více než jedna tužka.
+                Urči cenu jednoho sešitu a jedné tužky.<br>
+                (Např. soustava: <em>3s + 2t = 74</em>, <em>s = t + 8</em>, kde s – sešit, t – tužka.)
+            </div>
+            <div class="inputs-row">
+                <label for="q8s">Cena sešitu (Kč) =</label>
+                <input type="text" id="q8s" class="answer" data-correct="18">
+            </div>
+            <div class="inputs-row">
+                <label for="q8t">Cena tužky (Kč) =</label>
+                <input type="text" id="q8t" class="answer" data-correct="10">
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="checkTest">Vyhodnotit test</button>
+            <button id="resetTest" type="button">Smazat odpovědi</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<script>
+    function normalizeInput(value) {
+        if (!value) return "";
+        return value.toString().trim().replace(",", ".");
+    }
+
+    document.getElementById("checkTest").addEventListener("click", function () {
+        const questions = document.querySelectorAll(".question");
+        let correctCount = 0;
+
+        questions.forEach(function (q) {
+            q.classList.remove("correct", "incorrect");
+            const inputs = q.querySelectorAll(".answer");
+            let questionCorrect = true;
+
+            inputs.forEach(function (input) {
+                const user = normalizeInput(input.value);
+                const correct = normalizeInput(input.dataset.correct);
+
+                if (user === "") {
+                    questionCorrect = false;
+                    return;
+                }
+
+                const userNum = parseFloat(user);
+                const correctNum = parseFloat(correct);
+
+                if (isNaN(userNum) || isNaN(correctNum) || userNum !== correctNum) {
+                    questionCorrect = false;
+                }
+            });
+
+            if (questionCorrect) {
+                q.classList.add("correct");
+                correctCount++;
+            } else {
+                q.classList.add("incorrect");
+            }
+        });
+
+        const result = document.getElementById("result");
+        result.textContent = "Správně máš " + correctCount + " z " + questions.length + " otázek.";
+    });
+
+    document.getElementById("resetTest").addEventListener("click", function () {
+        const inputs = document.querySelectorAll(".answer");
+        inputs.forEach(function (input) {
+            input.value = "";
+        });
+
+        const questions = document.querySelectorAll(".question");
+        questions.forEach(function (q) {
+            q.classList.remove("correct", "incorrect");
+        });
+
+        document.getElementById("result").textContent = "";
+    });
+</script>
+</body>
+</html>
