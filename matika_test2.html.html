@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Matematika – Test 2 (počítání)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { text-align: center; }
+    .info {
+      background: #f0f0f0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .question {
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #ccc;
+    }
+    ol { padding-left: 20px; }
+    input[type="text"] {
+      min-width: 80px;
+      padding: 3px 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .feedback {
+      margin-top: 6px;
+      font-size: 0.95em;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #4caf50;
+      color: white;
+      font-size: 1rem;
+    }
+    button:hover { background: #43a047; }
+  </style>
+</head>
+<body>
+  <h1>Matematika – Test 2</h1>
+  <h2>Počítání (příprava na přijímačky)</h2>
+
+  <div class="info">
+    <ul>
+      <li>Piš jen čísla, desetinná čísla můžeš psát s tečkou i čárkou.</li>
+      <li>Zlomky klidně zapisuj jako desetinné (třeba 1.08).</li>
+    </ul>
+  </div>
+
+  <ol>
+    <li class="question" data-index="0">
+      Vypočítej:
+      <br>a) 3,5 + 4,27
+      <br>b) 12,9 − 7,48
+      <br>c) 4,2 · 3,5
+      <div>
+        a) <input type="text" class="answer-input" data-answer="7.77" data-tolerance="0.01">
+        b) <input type="text" class="answer-input" data-answer="5.42" data-tolerance="0.01">
+        c) <input type="text" class="answer-input" data-answer="14.7" data-tolerance="0.01">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="1">
+      Vypočítej (výsledky jako desetinná čísla):
+      <br>a) 5/6 + 1/4
+      <br>b) 7/8 − 1/3
+      <br>c) 4/5 · 3/7
+      <div>
+        a) <input type="text" class="answer-input" data-answer="1.0833" data-tolerance="0.02">
+        b) <input type="text" class="answer-input" data-answer="0.5417" data-tolerance="0.02">
+        c) <input type="text" class="answer-input" data-answer="0.3429" data-tolerance="0.02">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="2">
+      Vypočítej:
+      <br>a) 3<sup>4</sup>
+      <br>b) 5<sup>2</sup> + 2<sup>5</sup>
+      <br>c) 10<sup>3</sup> − 4<sup>3</sup>
+      <div>
+        a) <input type="text" class="answer-input" data-answer="81">
+        b) <input type="text" class="answer-input" data-answer="57">
+        c) <input type="text" class="answer-input" data-answer="936">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="3">
+      Řeš rovnici:
+      <br>a) 3x − 7 = 14
+      <br>b) 5x + 2 = 3x + 18
+      <div>
+        a) x = <input type="text" class="answer-input" data-answer="7">
+        b) x = <input type="text" class="answer-input" data-answer="8">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="4">
+      Řeš rovnici:
+      <br>a) x/4 + 3 = 8
+      <br>b) 2(x − 5) = 3x + 1
+      <div>
+        a) x = <input type="text" class="answer-input" data-answer="20">
+        b) x = <input type="text" class="answer-input" data-answer="-11">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="5">
+      Vypočítej hodnotu výrazu:
+      <br>a) pro x = −2: 5x − 3
+      <br>b) pro x = 3: 4(2x − 3)
+      <br>c) pro a = 4: 2a + 7
+      <div>
+        a) <input type="text" class="answer-input" data-answer="-13">
+        b) <input type="text" class="answer-input" data-answer="12">
+        c) <input type="text" class="answer-input" data-answer="15">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="6">
+      Vypočítej:
+      <br>a) √81
+      <br>b) √196
+      <br>c) √25 + √16
+      <div>
+        a) <input type="text" class="answer-input" data-answer="9">
+        b) <input type="text" class="answer-input" data-answer="14">
+        c) <input type="text" class="answer-input" data-answer="9">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="7">
+      Převeď:
+      <br>a) 3&nbsp;500 m = ? km
+      <br>b) 2,4 km = ? m
+      <br>c) 0,75 h = ? min
+      <div>
+        a) <input type="text" class="answer-input" data-answer="3.5" data-tolerance="0.01">
+        b) <input type="text" class="answer-input" data-answer="2400">
+        c) <input type="text" class="answer-input" data-answer="45">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="8">
+      Vypočítej procenta:
+      <br>a) 25&nbsp;% z 320
+      <br>b) 12&nbsp;% z 250
+      <br>c) 150 je 75&nbsp;% z čísla ?
+      <div>
+        a) <input type="text" class="answer-input" data-answer="80">
+        b) <input type="text" class="answer-input" data-answer="30">
+        c) <input type="text" class="answer-input" data-answer="200">
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="9">
+      Vypočítej:
+      <br>a) 3/4 · 48
+      <br>b) 5/9 z 180
+      <br>c) 924 : 21
+      <div>
+        a) <input type="text" class="answer-input" data-answer="36">
+        b) <input type="text" class="answer-input" data-answer="100">
+        c) <input type="text" class="answer-input" data-answer="44">
+      </div>
+      <div class="feedback"></div>
+    </li>
+  </ol>
+
+  <button type="button" onclick="evaluateTest()">Vyhodnotit test</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    const explanations2 = [
+      'a) 3,5 + 4,27 = 7,77. b) 12,9 − 7,48 = 5,42. c) 4,2 · 3,5 = 14,7 – běžné sčítání/odčítání a násobení desetinných čísel.',
+      'a) 5/6 + 1/4 = 10/12 + 3/12 = 13/12 ≈ 1,0833. b) 7/8 − 1/3 = 21/24 − 8/24 = 13/24 ≈ 0,5417. c) 4/5 · 3/7 = 12/35 ≈ 0,3429.',
+      'a) 3⁴ = 3·3·3·3 = 81. b) 5² = 25, 2⁵ = 32, součet 25 + 32 = 57. c) 10³ = 1 000, 4³ = 64, rozdíl 1 000 − 64 = 936.',
+      'a) 3x − 7 = 14 ⇒ 3x = 21 ⇒ x = 7. b) 5x + 2 = 3x + 18 ⇒ 2x = 16 ⇒ x = 8.',
+      'a) x/4 + 3 = 8 ⇒ x/4 = 5 ⇒ x = 20. b) 2(x − 5) = 3x + 1 ⇒ 2x − 10 = 3x + 1 ⇒ −11 = x.',
+      'Stačí dosadit: a) 5·(−2) − 3 = −10 − 3 = −13. b) 4(2·3 − 3) = 4(6 − 3) = 4·3 = 12. c) 2·4 + 7 = 8 + 7 = 15.',
+      'a) √81 = 9, protože 9·9 = 81. b) √196 = 14, protože 14·14 = 196. c) √25 + √16 = 5 + 4 = 9.',
+      'a) 3 500 m = 3,5 km (děleno 1 000). b) 2,4 km = 2 400 m (krát 1 000). c) 0,75 h = 3/4 hodiny = 45 minut.',
+      'a) 25 % z 320 = 0,25·320 = 80. b) 12 % z 250 = 0,12·250 = 30. c) 150 je 75 % z x ⇒ 150 = 0,75x ⇒ x = 150 : 0,75 = 200.',
+      'a) 3/4 · 48 = 48 : 4 · 3 = 12·3 = 36. b) 5/9 z 180 = 180 : 9 · 5 = 20·5 = 100. c) 924 : 21 = 44.'
+    ];
+
+    function parseValue(str) {
+      if (!str) return NaN;
+      str = str.toString().trim().replace(',', '.');
+      const val = parseFloat(str);
+      return isNaN(val) ? NaN : val;
+    }
+
+    function evaluateTest() {
+      const questions = document.querySelectorAll('.question');
+      let correctQuestions = 0;
+
+      questions.forEach((qElem, index) => {
+        const inputs = qElem.querySelectorAll('.answer-input');
+        let allCorrect = true;
+
+        inputs.forEach(input => {
+          const correctVal = parseFloat(input.dataset.answer);
+          const tol = input.dataset.tolerance ? parseFloat(input.dataset.tolerance) : 0.01;
+          const userVal = parseValue(input.value);
+
+          if (isNaN(userVal) || Math.abs(userVal - correctVal) > tol) {
+            allCorrect = false;
+            input.style.backgroundColor = '#ffd0d0';
+          } else {
+            input.style.backgroundColor = '#c8f7c5';
+          }
+        });
+
+        const fb = qElem.querySelector('.feedback');
+        if (allCorrect) {
+          correctQuestions++;
+          fb.innerHTML = '<strong>Správně!</strong> ' + explanations2[index];
+        } else {
+          fb.innerHTML = '<strong>Není to dobře.</strong> ' + explanations2[index];
+        }
+      });
+
+      const total = questions.length;
+      const percent = Math.round((correctQuestions / total) * 100);
+      document.getElementById('result').textContent =
+        'Máš správně ' + correctQuestions + ' z ' + total + ' otázek (' + percent + ' %).';
+    }
+  </script>
+</body>
+</html>

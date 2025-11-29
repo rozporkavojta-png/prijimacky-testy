@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Matematika – Test 1 (slovní úlohy)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .info {
+      background: #f0f0f0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    ol { padding-left: 20px; }
+    .question {
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #ccc;
+    }
+    .answer {
+      margin-top: 8px;
+    }
+    input[type="text"] {
+      min-width: 120px;
+      padding: 3px 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .feedback {
+      margin-top: 6px;
+      font-size: 0.95em;
+    }
+    .feedback strong {
+      display: inline-block;
+      margin-right: 4px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #4caf50;
+      color: white;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #43a047;
+    }
+  </style>
+</head>
+<body>
+  <h1>Matematika – Test 1</h1>
+  <h2>Slovní úlohy (příprava na přijímačky)</h2>
+
+  <div class="info">
+    <ul>
+      <li>Piš jen <strong>čísla bez jednotek</strong> (např. 120, 37.5).</li>
+      <li>Desetinná čísla můžeš psát s tečkou i čárkou (např. 37.5 nebo 37,5).</li>
+    </ul>
+  </div>
+
+  <ol>
+    <li class="question" data-index="0">
+      V obchodě zlevnili mikinu z 840 Kč na 714 Kč.
+      <br>O kolik procent mikinu zlevnili?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="15"> %
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="1">
+      Janek ušetřil za prázdniny 1&nbsp;800 Kč. To je 60&nbsp;% ceny notebooku, který si chce koupit.
+      <br>Kolik stojí notebook?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="3000"> Kč
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="2">
+      Vlak jede průměrnou rychlostí 90 km/h. Cesta mezi dvěma městy trvá 1 hodinu a 20 minut.
+      <br>Jak daleko jsou města od sebe?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="120"> km
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="3">
+      Třída má 28 žáků. Na školní výlet jede 75&nbsp;% žáků.
+      <br>Kolik žáků se výletu nezúčastní?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="7"> žáků
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="4">
+      V obchodě prodávají 1,5 litru džusu za 39 Kč. Kolik stojí 1 litr tohoto džusu?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="26"> Kč
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="5">
+      Autobus vyjel z města A v 8:15 a do města B přijel v 11:00. Ujel celkem 170 km.
+      <br>Jaká byla jeho průměrná rychlost? (zaokrouhli na dvě desetinná místa)
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="61.82" data-tolerance="0.2"> km/h
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="6">
+      Student napsal test na 80 bodů ze 100. Na další písemce by chtěl mít průměr alespoň 85 bodů.
+      <br>Kolik bodů musí získat z druhé písemky, aby měl průměr 85 bodů?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="90"> bodů
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="7">
+      V kině je 250 míst. Na představení bylo prodáno 192 vstupenek.
+      <br>Jaké procento míst zůstalo volných? (na jedno desetinné místo)
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="23.2" data-tolerance="0.1"> %
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="8">
+      Délka obdélníku je 3krát větší než jeho šířka. Obvod obdélníku je 96 cm.
+      <br>Urči šířku a délku obdélníku.
+      <div class="answer">
+        Šířka: <input type="text" class="answer-input" data-answer="12"> cm,
+        délka: <input type="text" class="answer-input" data-answer="36"> cm
+      </div>
+      <div class="feedback"></div>
+    </li>
+
+    <li class="question" data-index="9">
+      Auto spotřebuje průměrně 6,5 litru benzínu na 100 km. Nádrž má 52 litrů benzínu.
+      <br>Kolik kilometrů může auto ujet, než nádrž vyprázdní?
+      <div class="answer">
+        Odpověď: <input type="text" class="answer-input" data-answer="800"> km
+      </div>
+      <div class="feedback"></div>
+    </li>
+  </ol>
+
+  <button type="button" onclick="evaluateTest()">Vyhodnotit test</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    const explanations = [
+      'Sleva je rozdíl 840 − 714 = 126 Kč. Původní cena je 840 Kč, takže 126 / 840 = 0,15 = 15 %.',
+      '1 800 Kč je 60 % ceny. Cena = 1 800 : 0,6 = 3 000 Kč.',
+      '1 h 20 min = 1 + 20/60 = 4/3 h. Vzdálenost = 90 × 4/3 = 120 km.',
+      '75 % z 28 je 0,75 × 28 = 21 žáků. Nejedou 28 − 21 = 7 žáků.',
+      '1,5 litru stojí 39 Kč. Cena za 1 litr je 39 : 1,5 = 26 Kč.',
+      'Od 8:15 do 11:00 je 2 h 45 min = 2,75 h. Průměrná rychlost je 170 : 2,75 ≈ 61,82 km/h.',
+      'Průměr dvou testů: (80 + x) / 2 = 85. Po vynásobení 2: 80 + x = 170, takže x = 90 bodů.',
+      'Volných míst je 250 − 192 = 58. Podíl 58 / 250 = 0,232, což je 23,2 %.',
+      'Označ šířku x, délka je 3x. Obvod 2(a + b) = 96 ⇒ a + b = 48. x + 3x = 48 ⇒ 4x = 48 ⇒ x = 12. Délka je 36.',
+      'Auto spotřebuje 6,5 l na 100 km. Z 52 l ujede (52 : 6,5) × 100 = 8 × 100 = 800 km.'
+    ];
+
+    function parseValue(str) {
+      if (!str) return NaN;
+      str = str.toString().trim().replace(',', '.');
+      const val = parseFloat(str);
+      return isNaN(val) ? NaN : val;
+    }
+
+    function evaluateTest() {
+      const questions = document.querySelectorAll('.question');
+      let correctQuestions = 0;
+
+      questions.forEach((qElem, index) => {
+        const inputs = qElem.querySelectorAll('.answer-input');
+        let allCorrect = true;
+
+        inputs.forEach(input => {
+          const correctVal = parseFloat(input.dataset.answer);
+          const tol = input.dataset.tolerance ? parseFloat(input.dataset.tolerance) : 0.01;
+          const userVal = parseValue(input.value);
+
+          if (isNaN(userVal) || Math.abs(userVal - correctVal) > tol) {
+            allCorrect = false;
+            input.style.backgroundColor = '#ffd0d0';
+          } else {
+            input.style.backgroundColor = '#c8f7c5';
+          }
+        });
+
+        const fb = qElem.querySelector('.feedback');
+        if (allCorrect) {
+          correctQuestions++;
+          fb.innerHTML = '<strong>Správně!</strong> ' + explanations[index];
+        } else {
+          fb.innerHTML = '<strong>Není to dobře.</strong> ' + explanations[index];
+        }
+      });
+
+      const total = questions.length;
+      const percent = Math.round((correctQuestions / total) * 100);
+      document.getElementById('result').textContent =
+        'Máš správně ' + correctQuestions + ' z ' + total + ' otázek (' + percent + ' %).';
+    }
+  </script>
+</body>
+</html>
+
+
