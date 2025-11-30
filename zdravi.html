@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duševní zdraví - Pomoc a podpora</title>
+    <style>
+        :root {
+            --primary: #4cc9f0;
+            --secondary: #4895ef;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .topic-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .topic-card h3 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .topic-card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .help-section {
+            margin: 3rem 0;
+        }
+        
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .help-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .help-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .help-card h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .help-card h4 i {
+            margin-right: 10px;
+        }
+        
+        .help-card ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .help-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .help-card li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .trust-box {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 3rem 0;
+        }
+        
+        .trust-box h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .trust-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .privacy-note {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .topics-grid,
+            .help-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Duševní zdraví - Pomoc a podpora</h1>
+        <p class="subtitle">Jsi důležitý/á a tvoje pocity mají hodnotu ❤️</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <p>Ahoj 👋, tady najdeš pomoc a informace o důležitých tématech. Pamatuj, že nejsi sám/sama a vždy existuje pomoc 🤗</p>
+        </section>
+        
+        <section class="topics-grid">
+            <div class="topic-card">
+                <h3>🧠 Duševní zdraví</h3>
+                <p>Péče o duševní zdraví je stejně důležitá jako péče o tělesné zdraví. Nauč se rozpoznávat své pocity a emoce.</p>
+                <a href="#duševní-zdraví" class="btn">Více informací</a>
+            </div>
+            
+            <div class="topic-card">
+                <h3>🚫 Šikana</h3>
+                <p>Šikana není v pořádku a nikdo si ji nezaslouží. Nauč se ji rozpoznat a vědět, kde hledat pomoc.</p>
+                <a href="#šikana" class="btn">Více informací</a>
+            </div>
+            
+            <div class="topic-card">
+                <h3>📞 Krizová pomoc</h3>
+                <p>Když se cítíš špatně nebo máš problém, existují lidé a organizace, které ti mohou pomoci.</p>
+                <a href="#pomoc" class="btn">Kontakty na pomoc</a>
+            </div>
+        </section>
+        
+        <section class="help-section" id="duševní-zdraví">
+            <h2 style="text-align: center; margin-bottom: 1rem;">🧠 Péče o duševní zdraví</h2>
+            
+            <div class="help-grid">
+                <div class="help-card">
+                    <h4>💚 Co je duševní zdraví?</h4>
+                    <ul>
+                        <li>Schopnost zvládat běžný stres</li>
+                        <li>Umět pracovat s emocemi</li>
+                        <li>Mít zdravé vztahy s ostatními</li>
+                        <li>Cítit se dobře sám se sebou</li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h4>🛟 Kdy hledat pomoc?</h4>
+                    <ul>
+                        <li>Když se cítíš dlouhodobě smutný/á</li>
+                        <li>Máš problémy se spánkem</li>
+                        <li>Ztrácíš zájem o koníčky</li>
+                        <li>Cítíš se bezmocně nebo beznadějně</li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h4>🌈 Jak si pomoci sám/sama?</h4>
+                    <ul>
+                        <li>Mluv o svých pocitech</li>
+                        <li>Dělej činnosti, které tě baví</li>
+                        <li>Hýbej se a sportuj</li>
+                        <li>Měj pravidelný režim dne</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="help-section" id="šikana">
+            <h2 style="text-align: center; margin-bottom: 1rem;">🚫 Šikana - víš, co dělat?</h2>
+            
+            <div class="help-grid">
+                <div class="help-card">
+                    <h4>🔍 Jak poznat šikanu?</h4>
+                    <ul>
+                        <li>Nadávky a posměšky</li>
+                        <li>Fyzické ubližování</li>
+                        <li>Krádeže nebo ničení věcí</li>
+                        <li>Vylučování z kolektivu</li>
+                        <li>Kyberšikana (online)</li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h4>🆘 Co dělat při šikaně?</h4>
+                    <ul>
+                        <li>Řekni to dospělému, kterému věříš</li>
+                        <li>Kontaktuj školního psychologa</li>
+                        <li>Svěř se rodičům</li>
+                        <li>Volej na linku důvěry</li>
+                        <li>NIC NENÍ TVOJE CHYBA!</li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h4>📞 Kam se obrátit?</h4>
+                    <ul>
+                        <li>Linka bezpečí: 116 111</li>
+                        <li>Rodičovská linka: 606 021 021</li>
+                        <li>Školní psycholog/poradce</li>
+                        <li>Třídní učitel/ka</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="help-section" id="pomoc">
+            <h2 style="text-align: center; margin-bottom: 1rem;">📞 Důležitá telefonní čísla</h2>
+            
+            <div class="help-grid">
+                <div class="help-card">
+                    <h4>🆘 Linky důvěry</h4>
+                    <ul>
+                        <li><strong>Linka bezpečí:</strong> 116 111</li>
+                        <li><strong>Rodičovská linka:</strong> 606 021 021</li>
+                        <li><strong>Modrá linka:</strong> 549 241 010</li>
+                        <li><strong>Don't give up:</strong> 735 146 146</li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h4>🏥 Krizová pomoc</h4>
+                    <ul>
+                        <li><strong>Rychlá záchranná služba:</strong> 155</li>
+                        <li><strong>Tísňové volání:</strong> 112</li>
+                        <li><strong>Policie:</strong> 158</li>
+                        <li><strong>Krizová centra v nemocnicích</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h4>🌐 Online pomoc</h4>
+                    <ul>
+                        <li><strong>E-mailová poradna:</strong> pomoc@linkabezpeci.cz</li>
+                        <li><strong>Chat poradna:</strong> chat.linkabezpeci.cz</li>
+                        <li><strong>Web:</strong> linkabezpeci.cz</li>
+                        <li><strong>Schránka důvěry níže ↓</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="trust-box">
+            <h2>✉️ Schránka důvěry</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">Můžeš mi napsat cokoliv - tvůj vzkaz bude anonymní a odpovím ti co nejdříve.</p>
+            
+            <div class="privacy-note">
+                <strong>📝 Důležité:</strong> Všechny zprávy jsou anonymní. Pokud chceš odpověď, nezapomeň napsat svůj e-mail.
+            </div>
+            
+            <div id="messageArea"></div>
+            
+            <!-- EmailJS formulář -->
+            <form class="trust-form" id="trustForm">
+                <div class="form-group">
+                    <label for="name">Tvé jméno (nepovinné):</label>
+                    <input type="text" id="name" name="from_name" placeholder="Můžeš zůstat anonymní">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Tvůj e-mail (nepovinné):</label>
+                    <input type="email" id="email" name="from_email" placeholder="Pokud chceš odpověď">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tvá zpráva *:</label>
+                    <textarea id="message" name="message" placeholder="Napiš mi, co tě trápí nebo s čím potřebuješ pomoct..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">Odeslat zprávu</button>
+            </form>
+            
+            <div style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: #6c757d;">
+                <p>Zpráva bude odeslána na: rozporkavojta@gmail.com</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Duševní zdraví - Pomoc a podpora &copy; 2023 | Pamatuj, že nejsi sám/sama ❤️</p>
+    </footer>
+
+    <script>
+        // Inicializace EmailJS s tvými údaji
+        (function() {
+            emailjs.init("H7zclKvp-iEZlQNqx");
+        })();
+
+        // Hladké scrollování pro odkazy
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Odesílání formuláře přes EmailJS
+        document.getElementById('trustForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const messageArea = document.getElementById('messageArea');
+            const submitBtn = document.getElementById('submitBtn');
+            const message = document.getElementById('message').value;
+            
+            if (!message.trim()) {
+                messageArea.innerHTML = `
+                    <div class="message error">
+                        <strong>Chyba:</strong> Prosím, napiš svou zprávu.
+                    </div>
+                `;
+                messageArea.style.display = 'block';
+                return;
+            }
+            
+            // Přidání data do formuláře
+            const dateField = document.createElement('input');
+            dateField.type = 'hidden';
+            dateField.name = 'date';
+            dateField.value = new Date().toLocaleString('cs-CZ');
+            this.appendChild(dateField);
+            
+            // Zobrazit načítání
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Odesílám...';
+            
+            messageArea.innerHTML = `
+                <div class="message success">
+                    <strong>Odesílám tvůj vzkaz...</strong><br>
+                    Prosím počkej.
+                </div>
+            `;
+            messageArea.style.display = 'block';
+            
+            // Odeslání e-mailu s tvými údaji
+            emailjs.sendForm('service_sxgvsjy', 'template_9clqva5', this)
+                .then(function(response) {
+                    messageArea.innerHTML = `
+                        <div class="message success">
+                            <strong>✅ Úspěch!</strong><br>
+                            Tvůj vzkaz byl odeslán. Odpovím ti co nejdříve.<br>
+                            <small>Stav: ${response.status} ${response.text}</small>
+                        </div>
+                    `;
+                    document.getElementById('trustForm').reset();
+                }, function(error) {
+                    messageArea.innerHTML = `
+                        <div class="message error">
+                            <strong>❌ Chyba:</strong><br>
+                            Nepodařilo se odeslat zprávu. Zkus to prosím znovu později.<br>
+                            <small>Chyba: ${error.text || error}</small>
+                        </div>
+                    `;
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Odeslat zprávu';
+                    
+                    // Odstranění dočasného pole s datem
+                    if (dateField.parentNode) {
+                        dateField.parentNode.removeChild(dateField);
+                    }
+                    
+                    // Skrýt zprávu po 10 sekundách
+                    setTimeout(function() {
+                        messageArea.style.display = 'none';
+                    }, 10000);
+                });
+        });
+    </script>
+</body>
+</html>
