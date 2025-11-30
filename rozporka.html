@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematika - příprava na přijímačky</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-buttons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .header-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .header-btn:hover {
+            background: white;
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-card h3 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .resource-card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .video-section {
+            margin: 3rem 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .video-card:hover .play-button {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+            color: var(--accent);
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .video-info p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .youtube-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        
+        .youtube-link:hover {
+            text-decoration: underline;
+        }
+        
+        .youtube-icon {
+            margin-right: 5px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .header-buttons {
+                position: static;
+                justify-content: center;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .header-btn {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-buttons">
+            <a href="https://rozporkavojta-png.github.io/prijimacky-testy/timeman.html" target="_blank" class="header-btn">
+                ⏰ Time Manager
+            </a>
+            <a href="https://rozporkavojta-png.github.io/prijimacky-testy/zdravi.html" target="_blank" class="header-btn">
+                🧠 Duševní zdraví
+            </a>
+        </div>
+        <h1>Matematika - příprava na přijímačky</h1>
+        <p class="subtitle">Vše, co potřebuješ k úspěšnému zvládnutí testů</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <p>Ahoj 👋, tady máš pár věcí k přípravě na přijímačky z matiky 📘:</p>
+        </section>
+        
+        <section class="resources-grid">
+            <div class="resource-card">
+                <h3>🌐 Web na učení a procvičování</h3>
+                <p>Kompletní příprava na přijímací zkoušky z matematiky s testy, vysvětleními a řešeními.</p>
+                <a href="https://www.statniprijimacky.cz/pro/9-trida" target="_blank" class="btn">Navštívit web</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>📚 Testy nanečisto</h3>
+                <p>Vyzkoušej si testy z minulých let a zjisti, jak bys dopadl/a u skutečných přijímaček.</p>
+                <a href="https://www.statniprijimacky.cz/pro/9-trida" target="_blank" class="btn">Procvičovat testy</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>📝 Řešené příklady</h3>
+                <p>Podrobná vysvětlení všech typů úloh, které se v testech objevují.</p>
+                <a href="https://rozporkavojta-png.github.io/prijimacky-testy/matika_test.html" target="_blank" class="btn">Prohlédnout příklady</a>
+            </div>
+        </section>
+        
+        <section class="video-section">
+            <h2 style="text-align: center; margin-bottom: 1rem;">🎥 Videa k přijímačkám z matematiky</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">Klikni na video a podívej se na řešení testů krok za krokem přímo na YouTube</p>
+            
+            <div class="video-grid">
+                <a href="https://www.youtube.com/watch?v=att-SONy1os" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/att-SONy1os/maxresdefault.jpg" alt="Řešení přijímaček z matematiky">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>Řešení přijímaček z matematiky – 9. třída, 1. termín</h4>
+                        <p>Podrobné vysvětlení řešení všech úloh z prvního termínu přijímacích zkoušek.</p>
+                        <span class="youtube-link">
+                            <span class="youtube-icon">▶</span> Přehrát na YouTube
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://www.youtube.com/watch?v=FTbC9cGCncE" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/FTbC9cGCncE/maxresdefault.jpg" alt="CERMAT přijímačky nanečisto">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>CERMAT přijímačky nanečisto – řešení testu z matiky</h4>
+                        <p>Kompletní řešení testu z matematiky s tipy a triky na úspěšné zvládnutí.</p>
+                        <span class="youtube-link">
+                            <span class="youtube-icon">▶</span> Přehrát na YouTube
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Matematika - příprava na přijímačky &copy; 2023</p>
+    </footer>
+</body>
+</html>
