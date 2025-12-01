@@ -1,0 +1,238 @@
+<!-- Soubor: matematika.slovni-ulohy.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Matematika – Slovní úlohy (9. třída)</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #f7f7f7;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .question p {
+      margin: 0 0 8px 0;
+    }
+    input[type="text"] {
+      padding: 5px 8px;
+      font-size: 1rem;
+      min-width: 120px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background: #2563eb;
+      color: white;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    #result {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .feedback {
+      margin-left: 8px;
+      font-size: 0.95rem;
+    }
+    .correct {
+      color: #15803d;
+    }
+    .wrong {
+      color: #b91c1c;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Matematika – Test (9. třída)</h1>
+  <h2>Slovní úlohy</h2>
+
+  <div class="card">
+    <p><strong>Pokyny:</strong></p>
+    <ul>
+      <li>Piš jen čísla bez jednotek (např. <code>120</code> nebo <code>37.5</code>).</li>
+      <li>Desetinná čísla můžeš psát s tečkou i čárkou (např. <code>37.5</code> nebo <code>37,5</code>).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <ol>
+      <!-- 1. Procenta – sleva -->
+      <li class="question">
+        <p>V obchodě zlevnili bundu z 1&nbsp;200 Kč na 1&nbsp;020 Kč.</p>
+        <p>O kolik procent byla bunda zlevněna?</p>
+        <p>Odpověď: 
+          <input type="text" id="q1"> %
+          <span id="feedback-q1" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 2. Procenta – původní cena -->
+      <li class="question">
+        <p>Po slevě 20&nbsp;% stojí batoh 720 Kč.</p>
+        <p>Kolik stál batoh před slevou?</p>
+        <p>Odpověď: 
+          <input type="text" id="q2"> 
+          Kč
+          <span id="feedback-q2" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 3. Procenta – jednoduché úročení -->
+      <li class="question">
+        <p>Eva si uložila 5&nbsp;000 Kč na spořicí účet s roční úrokovou sazbou 3&nbsp;%. Úrok se počítá jako jednoduché úročení (úroky se nepřipisují k jistině).</p>
+        <p>Kolik korun bude mít na účtu po 2 letech celkem?</p>
+        <p>Odpověď: 
+          <input type="text" id="q3"> 
+          Kč
+          <span id="feedback-q3" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 4. Rychlost–čas–dráha -->
+      <li class="question">
+        <p>Auto ujelo dráhu 150 km za 2 hodiny a 30 minut.</p>
+        <p>Jaká byla jeho průměrná rychlost?</p>
+        <p>Odpověď: 
+          <input type="text" id="q4"> 
+          km/h
+          <span id="feedback-q4" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 5. Rychlost–čas–dráha -->
+      <li class="question">
+        <p>Vzdálenost mezi dvěma obcemi je 12 km. Turista jde průměrnou rychlostí 4 km/h.</p>
+        <p>Za jak dlouho dojde do cíle? (odpověz v hodinách)</p>
+        <p>Odpověď: 
+          <input type="text" id="q5"> 
+          hodin
+          <span id="feedback-q5" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 6. Práce -->
+      <li class="question">
+        <p>Dělník A vykoná určitou práci sám za 6 dní, dělník B za 8 dní.</p>
+        <p>Za kolik dní tuto práci udělají společně? (zaokrouhli na dvě desetinná místa)</p>
+        <p>Odpověď: 
+          <input type="text" id="q6"> 
+          dní
+          <span id="feedback-q6" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 7. Směsi -->
+      <li class="question">
+        <p>Máme 2 litry sirupu s koncentrací 30&nbsp;%.</p>
+        <p>Kolik litrů vody musíme přidat, aby vznikla směs s koncentrací 12&nbsp;%?</p>
+        <p>Odpověď: 
+          <input type="text" id="q7"> 
+          litrů
+          <span id="feedback-q7" class="feedback"></span>
+        </p>
+      </li>
+
+      <!-- 8. Poměry -->
+      <li class="question">
+        <p>Ve třídě je 28 žáků. Poměr chlapců a dívek je 3&nbsp;:&nbsp;4.</p>
+        <p>Kolik chlapců je ve třídě?</p>
+        <p>Odpověď: 
+          <input type="text" id="q8"> 
+          chlapců
+          <span id="feedback-q8" class="feedback"></span>
+        </p>
+      </li>
+    </ol>
+
+    <button type="button" onclick="evaluateTest()">Vyhodnotit test</button>
+    <div id="result"></div>
+    <p class="note">Poznámka: Zaokrouhluj rozumně, drobné odchylky u desetinných výsledků jsou tolerovány.</p>
+  </div>
+
+  <script>
+    // Správné výsledky
+    // q1: sleva z 1200 na 1020 -> 15 %
+    // q2: 720 je 80 % původní ceny -> 720 / 0.8 = 900
+    // q3: 5000 + 2 * (3 % z 5000) = 5000 + 300 = 5300
+    // q4: 150 km / 2.5 h = 60 km/h
+    // q5: 12 km / 4 km/h = 3 h
+    // q6: 1/6 + 1/8 = 7/24 práce za den => 24/7 ≈ 3.4286 -> 3.43 dne
+    // q7: 0.6 l čisté látky, 0.6 = 0.12 * V => V = 5 l, přidáme 3 l vody
+    // q8: 3 + 4 = 7 dílů, 28 / 7 = 4, chlapců je 3 * 4 = 12
+
+    const answers = {
+      q1: { value: 15, tol: 0.01 },
+      q2: { value: 900, tol: 0.01 },
+      q3: { value: 5300, tol: 0.01 },
+      q4: { value: 60, tol: 0.01 },
+      q5: { value: 3, tol: 0.01 },
+      q6: { value: 3.43, tol: 0.02 }, // malá tolerance
+      q7: { value: 3, tol: 0.01 },
+      q8: { value: 12, tol: 0.01 }
+    };
+
+    function parseNumber(str) {
+      if (!str) return NaN;
+      // nahradíme čárku tečkou a odstraníme mezery
+      const normalized = str.toString().trim().replace(/\s+/g, "").replace(",", ".");
+      return parseFloat(normalized);
+    }
+
+    function evaluateTest() {
+      let correctCount = 0;
+      let total = Object.keys(answers).length;
+
+      for (const id in answers) {
+        const input = document.getElementById(id);
+        const feedback = document.getElementById("feedback-" + id);
+        const userValue = parseNumber(input.value);
+        const { value, tol } = answers[id];
+
+        if (isNaN(userValue)) {
+          feedback.textContent = " → zadej číslo";
+          feedback.className = "feedback wrong";
+          continue;
+        }
+
+        if (Math.abs(userValue - value) <= tol) {
+          correctCount++;
+          feedback.textContent = " ✓ správně";
+          feedback.className = "feedback correct";
+        } else {
+          feedback.textContent = " ✗ špatně";
+          feedback.className = "feedback wrong";
+        }
+      }
+
+      const result = document.getElementById("result");
+      result.textContent = "Správně máš " + correctCount + " z " + total + " otázek.";
+    }
+  </script>
+</body>
+</html>
+

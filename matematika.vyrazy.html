@@ -1,0 +1,222 @@
+<!-- Soubor: matematika.vyrazy.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Matematika – Výrazy a jejich úpravy (9. třída)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 20px 30px 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #555;
+    }
+    .info {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+    .question {
+      margin-bottom: 18px;
+      padding: 10px 12px;
+      border-radius: 4px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+    }
+    .question.correct {
+      border-color: #2e7d32;
+      background: #e8f5e9;
+    }
+    .question.incorrect {
+      border-color: #c62828;
+      background: #ffebee;
+    }
+    .question-number {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    input[type="text"] {
+      width: 100%;
+      max-width: 260px;
+      padding: 6px 8px;
+      font-size: 1rem;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+    button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .small-note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Test – Výrazy a jejich úpravy</h1>
+  <h2>9. třída ZŠ</h2>
+
+  <p class="info">
+    Doplň výsledky do políček. Výrazy piš bez mezery, např. <strong>2a+4</strong> nebo <strong>(x-4)(x+4)</strong>.
+    Při vyhodnocení se mezery ignorují.
+  </p>
+
+  <!-- 1. Zjednodušování výrazů -->
+  <div class="question" id="q1">
+    <span class="question-number">1.</span>
+    <label for="q1_input">
+      Zjednoduš výraz: <strong>5a - 3a + 4</strong>
+    </label>
+    <input type="text" id="q1_input" placeholder="např. 2a+4">
+    <div class="small-note">Výsledek zapiš co nejjednodušeji.</div>
+  </div>
+
+  <!-- 2. Zjednodušování výrazů s závorkami -->
+  <div class="question" id="q2">
+    <span class="question-number">2.</span>
+    <label for="q2_input">
+      Zjednoduš výraz: <strong>2(x - 3) + 4x</strong>
+    </label>
+    <input type="text" id="q2_input" placeholder="např. 6x-6">
+  </div>
+
+  <!-- 3. Rozklad na součin – vytýkání -->
+  <div class="question" id="q3">
+    <span class="question-number">3.</span>
+    <label for="q3_input">
+      Rozlož na součin: <strong>3x² - 12x</strong>
+    </label>
+    <input type="text" id="q3_input" placeholder="např. 3x(x-4)">
+    <div class="small-note">Použij vytýkání společného činitele.</div>
+  </div>
+
+  <!-- 4. Rozklad na součin – vzorec a² - b² -->
+  <div class="question" id="q4">
+    <span class="question-number">4.</span>
+    <label for="q4_input">
+      Rozlož na součin pomocí vzorce <strong>a² - b²</strong>: <strong>9 - x²</strong>
+    </label>
+    <input type="text" id="q4_input" placeholder="např. (3-x)(3+x)">
+  </div>
+
+  <!-- 5. Výrazy se zlomky -->
+  <div class="question" id="q5">
+    <span class="question-number">5.</span>
+    <label for="q5_input">
+      Zjednoduš výraz se zlomky: <strong>x/2 + x/3</strong>
+    </label>
+    <input type="text" id="q5_input" placeholder="např. 5x/6">
+    <div class="small-note">Použij společného jmenovatele.</div>
+  </div>
+
+  <!-- 6. Výrazy s mocninami -->
+  <div class="question" id="q6">
+    <span class="question-number">6.</span>
+    <label for="q6_input">
+      Zjednoduš výraz: <strong>x² · x³</strong>
+    </label>
+    <input type="text" id="q6_input" placeholder="např. x^5">
+    <div class="small-note">Použij pravidlo pro násobení mocnin se stejným základem.</div>
+  </div>
+
+  <!-- 7. Rozvinutí pomocí vzorce (a + b)² -->
+  <div class="question" id="q7">
+    <span class="question-number">7.</span>
+    <label for="q7_input">
+      Rozviň pomocí vzorce <strong>(a + b)²</strong>: <strong>(2x + 3)²</strong>
+    </label>
+    <input type="text" id="q7_input" placeholder="např. 4x^2+12x+9">
+  </div>
+
+  <!-- 8. Rozklad na součin pomocí vzorce a² - b² -->
+  <div class="question" id="q8">
+    <span class="question-number">8.</span>
+    <label for="q8_input">
+      Rozlož na součin: <strong>x² - 16</strong>
+    </label>
+    <input type="text" id="q8_input" placeholder="např. (x-4)(x+4)">
+  </div>
+
+  <button onclick="checkTest()">Vyhodnotit test</button>
+
+  <p class="result" id="result"></p>
+</div>
+
+<script>
+  function normalize(str) {
+    return str.toLowerCase().replace(/\s+/g, "");
+  }
+
+  function checkTest() {
+    // Správné odpovědi (některé mají více povolených tvarů)
+    const correctAnswers = [
+      ["2a+4", "4+2a"],                          // 1
+      ["6x-6", "-6+6x"],                         // 2
+      ["3x(x-4)"],                               // 3
+      ["(3-x)(3+x)", "(3+x)(3-x)"],              // 4
+      ["5x/6"],                                  // 5
+      ["x^5"],                                   // 6
+      ["4x^2+12x+9", "4x^2+12x+9"],             // 7
+      ["(x-4)(x+4)", "(x+4)(x-4)"]               // 8
+    ];
+
+    let score = 0;
+    const total = 8;
+
+    for (let i = 1; i <= total; i++) {
+      const input = document.getElementById("q" + i + "_input");
+      const userAnswer = normalize(input.value);
+      const questionDiv = document.getElementById("q" + i);
+
+      questionDiv.classList.remove("correct", "incorrect");
+
+      if (userAnswer === "") {
+        continue;
+      }
+
+      const variants = correctAnswers[i - 1].map(a => normalize(a));
+      if (variants.includes(userAnswer)) {
+        score++;
+        questionDiv.classList.add("correct");
+      } else {
+        questionDiv.classList.add("incorrect");
+      }
+    }
+
+    document.getElementById("result").textContent =
+      "Máš " + score + " bodů z " + total + ".";
+  }
+</script>
+</body>
+</html>

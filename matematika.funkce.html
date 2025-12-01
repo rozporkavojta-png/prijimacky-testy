@@ -1,0 +1,292 @@
+<!-- Soubor: matematika.funkce.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Test z matematiky – Funkce (9. třída)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0066cc;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto 40px;
+      background: white;
+      padding: 20px 25px 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .info {
+      font-size: 0.95em;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fafafa;
+    }
+    .question h3 {
+      margin: 0 0 10px;
+      font-size: 1.05em;
+    }
+    .options {
+      margin-top: 8px;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    input[type="number"], input[type="text"] {
+      padding: 4px 6px;
+      margin-top: 4px;
+      width: 100px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    table, th, td {
+      border: 1px solid #777;
+    }
+    th, td {
+      padding: 4px 8px;
+      text-align: center;
+    }
+    .btn-wrap {
+      text-align: center;
+      margin-top: 25px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 4px;
+      background: #0066cc;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #004f99;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Matematika – Funkce</h1>
+  <div>Test pro žáka 9. třídy</div>
+</header>
+<main>
+  <h2>Test – Funkce, přímá a nepřímá úměrnost, lineární funkce</h2>
+  <p class="info">
+    Odpověz na všech 8 otázek. Některé jsou výběrem z možností, jiné vyžadují výpočet.
+    Na konci klikni na tlačítko <strong>Vyhodnotit test</strong>.
+  </p>
+
+  <!-- 1. Přímá / nepřímá úměrnost z tabulky -->
+  <div class="question" data-type="radio" data-answer="b">
+    <h3>1. Vztah mezi veličinami – přímá, nepřímá, nebo jiná?</h3>
+    <p>Máme tabulku hodnot veličin <em>x</em> a <em>y</em>:</p>
+    <table>
+      <tr><th>x</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+      <tr><th>y</th><td>12</td><td>6</td><td>4</td><td>3</td></tr>
+    </table>
+    <p>Jaký je vztah mezi <em>x</em> a <em>y</em>?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="a"> a) Přímá úměrnost</label>
+      <label><input type="radio" name="q1" value="b"> b) Nepřímá úměrnost</label>
+      <label><input type="radio" name="q1" value="c"> c) Není ani přímá, ani nepřímá úměrnost</label>
+    </div>
+  </div>
+
+  <!-- 2. Textová úloha – přímá úměrnost -->
+  <div class="question" data-type="number" data-answer="18">
+    <h3>2. Přímá úměrnost – textová úloha</h3>
+    <p>
+      Za 5 sešitů zaplatíme 30&nbsp;Kč. Kolik zaplatíme za 3 stejné sešity?
+      (Předpokládej přímou úměrnost.)
+    </p>
+    <label>
+      Odpověď: 
+      <input type="number" step="1"> Kč
+    </label>
+  </div>
+
+  <!-- 3. Textová úloha – nepřímá úměrnost -->
+  <div class="question" data-type="number" data-answer="4">
+    <h3>3. Nepřímá úměrnost – textová úloha</h3>
+    <p>
+      Čtyři dělníci opraví chodník za 6 dní. Za kolik dní by stejnou práci 
+      zvládli tři dělníci, pokud by pracovali stejným tempem? (Předpokládej nepřímou úměrnost.)
+    </p>
+    <p><em>Výsledek zaokrouhli na celé dny.</em></p>
+    <label>
+      Odpověď: 
+      <input type="number" step="1"> dní
+    </label>
+  </div>
+
+  <!-- 4. Lineární funkce – směrnice -->
+  <div class="question" data-type="radio" data-answer="c">
+    <h3>4. Lineární funkce – směrnice</h3>
+    <p>Je dána funkce <strong>y = 3x - 2</strong>.</p>
+    <p>Jaká je její směrnice (koeficient u x)?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="a"> a) −2</label>
+      <label><input type="radio" name="q4" value="b"> b) 2</label>
+      <label><input type="radio" name="q4" value="c"> c) 3</label>
+      <label><input type="radio" name="q4" value="d"> d) 5</label>
+    </div>
+  </div>
+
+  <!-- 5. Který graf (myšleně) odpovídá rovnici -->
+  <div class="question" data-type="radio" data-answer="b">
+    <h3>5. Lineární funkce – průsečík s osou y</h3>
+    <p>Uvažuj funkci <strong>y = −x + 5</strong>.</p>
+    <p>Které tvrzení o grafu je správné?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="a"> a) Roste a protíná osu <em>y</em> v bodě (0;−5).</label>
+      <label><input type="radio" name="q5" value="b"> b) Klesá a protíná osu <em>y</em> v bodě (0;5).</label>
+      <label><input type="radio" name="q5" value="c"> c) Klesá a prochází počátkem soustavy souřadnic.</label>
+      <label><input type="radio" name="q5" value="d"> d) Je rovnoběžná s osou <em>x</em>.</label>
+    </div>
+  </div>
+
+  <!-- 6. Je funkce lineární? -->
+  <div class="question" data-type="radio" data-answer="a">
+    <h3>6. Lineární nebo nelineární funkce?</h3>
+    <p>Máme tabulku hodnot funkce <em>f</em>:</p>
+    <table>
+      <tr><th>x</th><th>−1</th><th>0</th><th>1</th><th>2</th></tr>
+      <tr><th>f(x)</th><td>1</td><td>3</td><td>5</td><td>7</td></tr>
+    </table>
+    <p>O jaký typ funkce se jedná?</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="a"> a) Lineární, roste</label>
+      <label><input type="radio" name="q6" value="b"> b) Lineární, klesá</label>
+      <label><input type="radio" name="q6" value="c"> c) Nelineární</label>
+    </div>
+  </div>
+
+  <!-- 7. Čtení informací z grafu (popis grafu) -->
+  <div class="question" data-type="number" data-answer="20">
+    <h3>7. Čtení informací z grafu (slovní popis)</h3>
+    <p>
+      Představ si graf, který znázorňuje závislost ujeté vzdálenosti na čase.
+      V čase 0&nbsp;min je vzdálenost 0&nbsp;km, v čase 1&nbsp;h je vzdálenost 10&nbsp;km,
+      v čase 2&nbsp;h je vzdálenost 20&nbsp;km. Graf je úsečka spojující tyto body.
+    </p>
+    <p>
+      Jaká vzdálenost bude odpovídat času 2&nbsp;h podle tohoto grafu?
+    </p>
+    <label>
+      Odpověď:
+      <input type="number" step="1"> km
+    </label>
+  </div>
+
+  <!-- 8. Určení předpisu lineární funkce z bodů -->
+  <div class="question" data-type="text" data-answer="y=2x+1">
+    <h3>8. Urči předpis lineární funkce</h3>
+    <p>
+      Graf lineární funkce prochází body <strong>A(0;1)</strong> a <strong>B(2;5)</strong>.
+      Zapiš předpis této lineární funkce ve tvaru <strong>y = ax + b</strong>.
+    </p>
+    <label>
+      Odpověď:
+      <input type="text" placeholder="např. y=2x+1">
+    </label>
+  </div>
+
+  <div class="btn-wrap">
+    <button onclick="checkTest()">Vyhodnotit test</button>
+  </div>
+  <div id="result"></div>
+</main>
+
+<script>
+  function normalizeTextAnswer(text) {
+    return text.toLowerCase().replace(/\s+/g, '');
+  }
+
+  function checkTest() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+    let total = questions.length;
+
+    questions.forEach(q => {
+      const type = q.getAttribute('data-type');
+      const correct = q.getAttribute('data-answer');
+      let correctThis = false;
+
+      if (type === 'radio') {
+        const checked = q.querySelector('input[type="radio"]:checked');
+        if (checked && checked.value === correct) {
+          correctThis = true;
+        }
+      } else if (type === 'number') {
+        const inp = q.querySelector('input[type="number"]');
+        if (inp && inp.value !== '') {
+          const userVal = parseFloat(inp.value.replace(',', '.'));
+          const correctVal = parseFloat(correct);
+          if (Math.abs(userVal - correctVal) < 0.01) {
+            correctThis = true;
+          }
+        }
+      } else if (type === 'text') {
+        const inp = q.querySelector('input[type="text"]');
+        if (inp) {
+          const userVal = normalizeTextAnswer(inp.value);
+          const correctVal = normalizeTextAnswer(correct);
+          if (userVal === correctVal) {
+            correctThis = true;
+          }
+        }
+      }
+
+      if (correctThis) {
+        score++;
+        q.classList.remove('incorrect');
+        q.classList.add('correct');
+      } else {
+        q.classList.remove('correct');
+        q.classList.add('incorrect');
+      }
+    });
+
+    const result = document.getElementById('result');
+    result.textContent = 'Získal(a) jsi ' + score + ' bodů z ' + total + '.';
+    result.className = score === total ? 'correct' : 'incorrect';
+  }
+</script>
+</body>
+</html>
+
