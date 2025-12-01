@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematické Testy - Přijímačky s Videi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .math-icon {
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 25px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+        }
+
+        .card-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content p {
+            color: #555;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .topic-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .video-section {
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .video-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .video-title i {
+            color: #ff0000;
+            margin-right: 8px;
+        }
+
+        .video-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-test {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-test:hover {
+            background: linear-gradient(to right, #27ae60, #219653);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-video {
+            background: linear-gradient(to right, #ff0000, #cc0000);
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+        }
+
+        .btn-video:hover {
+            background: linear-gradient(to right, #cc0000, #aa0000);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn i {
+            margin-left: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        .instructions {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db;
+        }
+
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .card-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator math-icon"></i> Matematické Testy</h1>
+            <p class="subtitle">Připravte se na přijímací zkoušky s našimi testy a video tutoriály. Každé téma obsahuje testy k procvičení a odkazy na výuková videa na YouTube.</p>
+        </header>
+
+        <div class="grid">
+            <!-- Lineární rovnice a soustavy -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Lineární rovnice a soustavy</h2>
+                </div>
+                <div class="card-content">
+                    <div class="topic-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <p>Lineární rovnice jsou rovnice, kde proměnná vystupuje pouze v první mocnině. Soustavy lineárních rovnic obsahují více rovnic s více neznámými. Tyto testy pokrývají řešení jednoduchých lineárních rovnic i soustav dvou rovnic o dvou neznámých.</p>
+                    
+                    <div class="video-section">
+                        <div class="video-title">
+                            <i class="fab fa-youtube"></i> Video tutoriály:
+                        </div>
+                        <div class="video-buttons">
+                            <a href="https://www.youtube.com/watch?v=I8JYS4zqkvc" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 1
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=kJdeWOTSkxc&list=PLTsU7h77U8N-1SW0Zl8jRhjkyIpDWBzJM" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 2
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://rozporkavojta-png.github.io/prijimacky-testy/matematika.linear.html" class="btn btn-test" target="_blank">
+                        Otevřít test <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Výrazy -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Výrazy</h2>
+                </div>
+                <div class="card-content">
+                    <div class="topic-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <p>Algebraické výrazy jsou kombinace čísel, proměnných a matematických operací. Testy z výrazů zahrnují jejich úpravy, rozklady, vytýkání, sčítání, odčítání, násobení a dělení. Důraz je kladen na pochopení struktury výrazů a jejich správné zjednodušování.</p>
+                    
+                    <div class="video-section">
+                        <div class="video-title">
+                            <i class="fab fa-youtube"></i> Video tutoriály:
+                        </div>
+                        <div class="video-buttons">
+                            <a href="https://www.youtube.com/watch?v=1aQfmCDNM2M" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 1
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=v0RIp2E7eBQ&list=PLD-MTmOzXT5MvGpUzxCw8UGDDHWTuMNV3" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 2
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://rozporkavojta-png.github.io/prijimacky-testy/matematika.vyrazy.html" class="btn btn-test" target="_blank">
+                        Otevřít test <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Funkce -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Funkce</h2>
+                </div>
+                <div class="card-content">
+                    <div class="topic-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <p>Funkce představují závislost jedné veličiny na druhé. Testy z funkcí se zaměřují na lineární funkce, jejich grafy, vlastnosti, určování předpisu funkce z grafu a na práci s definičním oborem a oborem hodnot. Procvičujte čtení grafů a výpočet funkčních hodnot.</p>
+                    
+                    <div class="video-section">
+                        <div class="video-title">
+                            <i class="fab fa-youtube"></i> Video tutoriály:
+                        </div>
+                        <div class="video-buttons">
+                            <a href="https://www.youtube.com/watch?v=eGqGRDFaqCY" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 1
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=e1jN_MCZHQ4" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 2
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://rozporkavojta-png.github.io/prijimacky-testy/matematika.funkce.html" class="btn btn-test" target="_blank">
+                        Otevřít test <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Kvadratické výrazy -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Kvadratické výrazy</h2>
+                </div>
+                <div class="card-content">
+                    <div class="topic-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <p>Kvadratické výrazy obsahují proměnnou ve druhé mocnině. Testy zahrnují práci s kvadratickými rovnicemi, jejich řešení pomocí rozkladu, doplnění na čtverec nebo diskriminantu. Také se věnují grafům kvadratických funkcí (parabolám) a jejich vlastnostem.</p>
+                    
+                    <div class="video-section">
+                        <div class="video-title">
+                            <i class="fab fa-youtube"></i> Video tutoriály:
+                        </div>
+                        <div class="video-buttons">
+                            <a href="https://www.youtube.com/watch?v=dpOVEvkPBkc" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 1
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=IDzbEca8ivk" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 2
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=aUKaxKwOUvU" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 3
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://rozporkavojta-png.github.io/prijimacky-testy/matematika.kvadraticke-vyrazy.html" class="btn btn-test" target="_blank">
+                        Otevřít test <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slovní úlohy -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Slovní úlohy</h2>
+                </div>
+                <div class="card-content">
+                    <div class="topic-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <p>Slovní úlohy představují aplikaci matematiky v reálných situacích. Testy obsahují úlohy z různých oblastí - od pohybových, přes směsi, práci, až po úlohy o věku nebo geometrii. Důraz je kladen na převedení textové úlohy do matematického jazyka a nalezení správné strategie řešení.</p>
+                    
+                    <div class="video-section">
+                        <div class="video-title">
+                            <i class="fab fa-youtube"></i> Video tutoriály:
+                        </div>
+                        <div class="video-buttons">
+                            <a href="https://www.youtube.com/watch?v=5FS4U-bobRo" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 1
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=0FZB0PH93yc&list=PLK3QkJhW75aL7_1kcJpafPUIpP_9ph-TV" class="btn btn-video" target="_blank">
+                                <i class="fas fa-play-circle"></i> Video 2
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://rozporkavojta-png.github.io/prijimacky-testy/matematika.slovni-ulohy.html" class="btn btn-test" target="_blank">
+                        Otevřít test <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> Jak používat tyto testy a videa</h3>
+            <p>Každá karta obsahuje:</p>
+            <ul>
+                <li><strong>Popis tématu</strong> - vysvětlení, co daná látka obsahuje</li>
+                <li><strong>Video tutoriály</strong> - odkazy na YouTube videa, která látku vysvětlují</li>
+                <li><strong>Tlačítko "Otevřít test"</strong> - odkaz na interaktivní test k procvičení</li>
+            </ul>
+            <p>Doporučujeme nejprve shlédnout videa pro pochopení látky a poté si otestovat své znalosti v testu.</p>
+        </div>
+
+        <footer>
+            <p>Testy poskytuje <strong>rozporkavojta-png.github.io</strong> | Video tutoriály z YouTube</p>
+            <p><i class="far fa-copyright"></i> 2023 Všechna práva vyhrazena</p>
+        </footer>
+    </div>
+
+    <script>
+        // Přidání interaktivity při načtení stránky
+        document.addEventListener('DOMContentLoaded', function() {
+            // Zvýraznění karet při interakci
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const header = this.querySelector('.card-header');
+                    header.style.transition = 'background 0.5s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const header = this.querySelector('.card-header');
+                    header.style.transition = 'background 0.5s ease';
+                });
+            });
+            
+            // Animace pro tlačítka
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Otevření videa v novém okně (již máme target="_blank" v odkazech)
+            console.log('Stránka s testy a videi je připravena!');
+        });
+    </script>
+</body>
+</html>
